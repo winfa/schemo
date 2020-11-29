@@ -1,0 +1,14 @@
+{
+  "basicInfo": {
+    "name": "Zhang San",
+    "gender": "male",
+    "email": "zhang.san@gmail.com"
+  },
+  "education": [
+    {
+      "startTime": "2015-07-01",
+      "endTime": "2010-09-01",
+      "school": "ChongQing University"
+    }
+  ]
+}

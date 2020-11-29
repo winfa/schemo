@@ -1,0 +1,159 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "basicInfo": {
+                "name": "Zhang San",
+                "gender": "male",
+                "email": "zhangsan@gmail.com"
+            },
+            "education": [
+                {
+                    "startTime": "2015-07-01",
+                    "endTime": "2010-09-01",
+                    "school": "ChongQing University"
+                }
+            ]
+        }
+    ],
+    "required": [
+        "basicInfo",
+        "education"
+    ],
+    "properties": {
+        "basicInfo": {
+            "$id": "#/properties/basicInfo",
+            "type": "object",
+            "title": "The basicInfo schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "name": "Zhang San",
+                    "gender": "male",
+                    "email": "zhangsan@gmail.com"
+                }
+            ],
+            "required": [
+                "name",
+                "gender",
+                "email"
+            ],
+            "properties": {
+                "name": {
+                    "$id": "#/properties/basicInfo/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Zhang San"
+                    ]
+                },
+                "gender": {
+                    "$id": "#/properties/basicInfo/properties/gender",
+                    "type": "string",
+                    "title": "The gender schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "male"
+                    ]
+                },
+                "email": {
+                    "$id": "#/properties/basicInfo/properties/email",
+                    "type": "string",
+                    "title": "The email schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "zhangsan@gmail.com"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "education": {
+            "$id": "#/properties/education",
+            "type": "array",
+            "title": "The education schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "startTime": "2015-07-01",
+                        "endTime": "2010-09-01",
+                        "school": "ChongQing University"
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/education/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/education/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "startTime": "2015-07-01",
+                                "endTime": "2010-09-01",
+                                "school": "ChongQing University"
+                            }
+                        ],
+                        "required": [
+                            "startTime",
+                            "endTime",
+                            "school"
+                        ],
+                        "properties": {
+                            "startTime": {
+                                "$id": "#/properties/education/items/anyOf/0/properties/startTime",
+                                "type": "string",
+                                "format": "date",
+                                "title": "The startTime schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "2015-07-01"
+                                ]
+                            },
+                            "endTime": {
+                                "$id": "#/properties/education/items/anyOf/0/properties/endTime",
+                                "type": "string",
+                                "title": "The endTime schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "2010-09-01"
+                                ],
+                                "format": "date"
+                            },
+                            "school": {
+                                "$id": "#/properties/education/items/anyOf/0/properties/school",
+                                "type": "string",
+                                "title": "The school schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "ChongQing University"
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}
