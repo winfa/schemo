@@ -8,7 +8,21 @@ export function SchemoFormControl({ keyName, schema, data, dataChange }: SchemoS
   }
 
   if (schema?.format === 'email') {
-    return <Form.Control type="email" placeholder={"Enter " + keyName} value={data} onChange={onChange} />;
+    return (
+      <Form.Control required type="email" placeholder={"Enter " + keyName} value={data} onChange={onChange} />
+    )
+  }
+
+  if (schema?.format === 'date') {
+    return <Form.Control type="date" placeholder={"Enter " + keyName} value={data} onChange={onChange} />;
+  }
+
+  if (!!schema?.enum) {
+    return (
+      <Form.Control as="select" placeholder={"Select " + keyName} value={data} onChange={onChange}>
+        {schema.enum.map(enumValue => <option>{enumValue}</option>)}
+      </Form.Control>
+    );
   }
 
   return <Form.Control type="email" placeholder={"Enter " + keyName} value={data} onChange={onChange} />;

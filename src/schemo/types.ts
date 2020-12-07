@@ -5,6 +5,7 @@ export interface Schema {
   description?: string;
   title: string;
   type: string;
+  enum?: Array<any>;
   format?: string;
 }
 

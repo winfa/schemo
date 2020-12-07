@@ -6,7 +6,6 @@ import { ObjectSchema, Schema, SchemoSettings } from "./types";
 
 export function Schemo({ schema, data }: SchemoSettings<any, ObjectSchema>): JSX.Element {
   const [jsonData, setJsonData] = useState(data);
-
   const dataChange = (data: any) => setJsonData(data);
 
   return (
